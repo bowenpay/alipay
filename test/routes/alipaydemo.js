@@ -13,7 +13,9 @@ alipay.on('verify_fail', function(){console.log('emit verify_fail')})
 	.on('trade_create_by_buyer_wait_buyer_pay', function(out_trade_no, trade_no){})
 	.on('trade_create_by_buyer_wait_seller_send_goods', function(out_trade_no, trade_no){})
 	.on('trade_create_by_buyer_wait_buyer_confirm_goods', function(out_trade_no, trade_no){})
-	.on('trade_create_by_buyer_trade_finished', function(out_trade_no, trade_no){});	
+	.on('trade_create_by_buyer_trade_finished', function(out_trade_no, trade_no){})
+	.on('create_direct_pay_by_wap_trade_finished', function(out_trade_no, trade_no){})
+	.on('create_direct_pay_by_wap_trade_success', function(out_trade_no, trade_no){});	
 	
 	
 exports.create_direct_pay_by_user = function(req, res){
@@ -133,6 +135,23 @@ exports.trade_create_by_buyer = function(req, res){
 		 };		
 		
 		alipay.trade_create_by_buyer(data, res);
+		
+	}
+}
+
+exports.create_direct_pay_by_wap = function(req, res){
+	if(req.route.method == 'get'){
+		res.render('create_direct_pay_by_wap'); 
+	}
+	else if(req.route.method == 'post'){		
+		var data = {
+			out_trade_no	: req.body.WIDout_trade_no,
+			subject	: req.body.WIDsubject,
+			total_fee	: req.body.WIDtotal_fee,
+			merchant_url	: req.body.WIDmerchant_url			
+		 };		
+		
+		alipay.create_direct_pay_by_wap(data, res);
 		
 	}
 }

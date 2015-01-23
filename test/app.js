@@ -53,6 +53,9 @@ app.all('/send_goods_confirm_by_platform', demo.send_goods_confirm_by_platform);
 app.all('/trade_create_by_buyer', demo.trade_create_by_buyer);
 
 
+app.all('/create_direct_pay_by_wap', demo.create_direct_pay_by_wap);
+
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
