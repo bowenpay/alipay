@@ -2,7 +2,7 @@
   "name": "node-alipay-wap",
   "description": "alipay api",
   "author": "dengdonglin yijingping",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/bowenpay/alipay.git"
